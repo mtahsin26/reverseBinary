@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Reverse Binary</title>
+  <script type="text/javascript">
+  	var a = 13;
+  	var binary = '';
+  	var run = true;
+
+  	function divideToBinary(num){
+      if (run) {
+        binary = '';
+        run = false;
+      };
+  		if (num == 0) {
+  			binary += num%2;
+        var array = [];
+  			array = binary.split("");
+  			var newBinary = '';
+  			console.log(array);
+  			for (var i = array.length - 1; i >= 0; i--) {
+  				if (array[i] == 0) {
+  					array.splice(i, 1);
+  				};
+  				if (array[i] == 1) {
+  					newBinary = array.reverse().join("");
+  					break;
+  				};
+
+  			};
+  			console.log("THIS IS BINARY: " + newBinary);
+        run = true;
+  			return newBinary.toString();
+  		}
+
+  		binary += num%2;
+      console.log(binary);
+  		return divideToBinary(Math.floor(num/2));
+
+  	}
+  	console.log("BINARY NUM "+divideToBinary(13));
+
+    function reverseBinToDec(bin){
+      decimal = 0;
+      console.log('BIN: ' + bin)
+      binArray = bin.toString().split("").reverse();
+
+      for (var i = binArray.length - 1; i >= 0; i--) {
+        decimal += binArray[i] * Math.pow(2,i);
+        console.log('I: ' +i);
+      };
+
+      console.log(decimal);
+    }
+
+    reverseBinToDec(divideToBinary(11));
+
+
+    function changeBin(val){
+      console.log("VALUE: " + val);
+      b = document.getElementById('')
+
+    }
+  </script>
+
+  <style type="text/css">
+    *{
+      padding: 0;
+      margin: 0;
+    }
+
+    body{
+      background-color: black;
+    }
+
+    #container{
+      width: 400px;
+      height: 200px;
+      background-color: #ccc;
+      margin: auto;
+    }
+  </style>
+
+ </head>
+ <body>
+
+    <div id="container" >
+      <input onkeyup="changeBin(this.value)" id="number" type="text" placeholder="Enter a number"><br>
+      Binary: <div id="binaryValue"></div><br>
+      
+
+    </div>
+  
+ </body>
+</html>
