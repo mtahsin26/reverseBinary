@@ -59,7 +59,16 @@
 
     function changeBin(val){
       console.log("VALUE: " + val);
-      b = document.getElementById('')
+        x = parseInt(val);
+        console.log(typeof x);
+      if (!isNaN(x)) {
+        console.log(x);
+        console.log('X IS A NUMBER');
+      };
+      
+      
+      rb = document.getElementById('reverseBinaryValue');
+      rd = document.getElementById('reverseDecimalValue');
 
     }
   </script>
@@ -88,6 +97,9 @@
     <div id="container" >
       <input onkeyup="changeBin(this.value)" id="number" type="text" placeholder="Enter a number"><br>
       Binary: <div id="binaryValue"></div><br>
+      <hr>
+      Reverse Binary: <div id="reverseBinaryValue"></div><br>
+      Decimal Value of reverse binary <div id="reverseDecimalValue"></div><br>
       
 
     </div>
